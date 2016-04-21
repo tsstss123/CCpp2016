@@ -81,19 +81,19 @@ void ANN::outputANN(std::string fileName){
     FILE* fp = fopen(fileName.c_str(),"w");
     fprintf(fp,"%d %d %d\n",inputLayerSize,hiddenLayerSize,outputLayerSize);
     for(int i = 0; i < inputLayerSize; ++i){
-        fprintf(fp,"%.10lf\n",inputLayer[i].threshold);
+        fprintf(fp,"%.10f\n",inputLayer[i].threshold);
         for(int j = 0; j < hiddenLayerSize; ++j)
             fprintf(fp,j?" %.10f":"%.10f",inputLayer[i].w[j]);
         fprintf(fp,"\n");
     }
     for(int i = 0; i < hiddenLayerSize; ++i){
-        fprintf(fp,"%.10lf\n",hiddenLayer[i].threshold);
+        fprintf(fp,"%.10f\n",hiddenLayer[i].threshold);
         for(int j = 0; j < outputLayerSize; ++j)
             fprintf(fp,j?" %.10f":"%.10f",hiddenLayer[i].w[j]);
         fprintf(fp,"\n");
     }
     for(int i = 0; i < outputLayerSize; ++i){
-        fprintf(fp,"%.10lf\n",outputLayer[i].threshold);
+        fprintf(fp,"%.10f\n",outputLayer[i].threshold);
     }
     fclose(fp);
 }
